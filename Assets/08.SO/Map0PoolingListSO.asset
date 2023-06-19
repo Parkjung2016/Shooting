@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb68d80483383b43b5726fbdc1809a9, type: 3}
+  m_Name: Map0PoolingListSO
+  m_EditorClassIdentifier: 
+  Pairs:
+  - Prefab: {fileID: -6018490357189829535, guid: 56f0a0e2fd0df7945aee56a137843df8, type: 3}
+    Count: 10
+  - Prefab: {fileID: 4170438758837868888, guid: bf06e8b8782b3144fa05149dd9291f9c, type: 3}
+    Count: 10
+  - Prefab: {fileID: -9089807733188956712, guid: 162865c7757e7034c89686cbfcf16135, type: 3}
+    Count: 10
+  - Prefab: {fileID: -9089807733188956712, guid: 3e2ad3a07682516468fc8743fe31401a, type: 3}
+    Count: 10
+  - Prefab: {fileID: 7216072639709306076, guid: 662e16738a518af439f7c275c44f076d, type: 3}
+    Count: 10
+  - Prefab: {fileID: 7722795246109063481, guid: a955623da5019654392f459f83124400, type: 3}
+    Count: 10
+  - Prefab: {fileID: 178677586188653584, guid: 67bfb29d44c93bb488c4de7f270d72e0, type: 3}
+    Count: 10
+  - Prefab: {fileID: 7216072639709306076, guid: 73fd48c34c70e9d4089b98657334f6b7, type: 3}
+    Count: 30
+  - Prefab: {fileID: 1670152306626400281, guid: 2858b0f11924ab0479f4d1a8c3581ec3, type: 3}
+    Count: 10
+  - Prefab: {fileID: 5078270161718632330, guid: 90a37fa3a468caf4fa8d0bf8dd62edd9, type: 3}
+    Count: 40

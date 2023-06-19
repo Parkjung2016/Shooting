@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Obstacle
+  - NPC
+  - Shield
+  - Ship
+  - EnemyBullet
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Enemy
+  - Pixel
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 23031391
+    locked: 0
+  - name: Enemy
+    uniqueID: 900878761
+    locked: 0
+  - name: Player
+    uniqueID: 4271086245
+    locked: 0
+  - name: NPC
+    uniqueID: 4068436913
+    locked: 0
+  - name: obstacle
+    uniqueID: 1735907437
+    locked: 0
+  - name: Effect
+    uniqueID: 1921293743
+    locked: 0

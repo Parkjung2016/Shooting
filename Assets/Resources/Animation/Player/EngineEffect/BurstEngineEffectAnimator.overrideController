@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BurstEngineEffectAnimator
+  m_Controller: {fileID: 9100000, guid: 7f59f3c26f3e0d54cb64a9ed455eaa52, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1ec26bf3b00592741949cac3641c7aa5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff76a98602664474880ab64881032324, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: af7f6ab0093e7c04bb050f0686bc40fe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ef2d688af96eebe48b564e0e21564c9b, type: 2}
