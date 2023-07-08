@@ -50,7 +50,7 @@ public class Bullet : PoolableMono
         {
            FollowTarget = target;
            _speed = 7;
-         addLookAtVec = new Vector2(.5f, .5f);
+         addLookAtVec = new Vector2(1, 1);
             if(gameObject.activeSelf)
         StartCoroutine(   CallPushThis(1.5f));
             seq2.Kill();

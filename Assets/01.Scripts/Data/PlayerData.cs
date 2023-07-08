@@ -4,8 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 
 
+[Serializable]
 public class PlayerData
 {
     public int[] HighScore = new int[2];
@@ -14,7 +16,6 @@ public class PlayerData
     public float MoveSpeed;
     public float Damage;
     public float MaxMana;
-    public string PlayerName;
     public bool SkipTrue;
     public int Gold;
     public int PlayerType=99;
@@ -24,5 +25,14 @@ public class PlayerData
     public ItemData CurrentEngine ;
     public ItemData CurrentWeapon;
     public bool Pet;
+    public bool Begin = false;
 
+}
+
+[Serializable]
+public class Data
+{
+    public PlayerData[] datas = new PlayerData[2];
+    public string PlayerName;
+    public bool Remove = true;
 }

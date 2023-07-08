@@ -131,12 +131,12 @@ public class PauseUI : MonoBehaviour
     public void ShowExitCheck()
     {
 
+        if (_canvasGroup.alpha < .99f) return;
         SoundManager.Instance.ClickBtnAudio();
         _checkExit.SetActive(true);
     }
     public void ExitBtn()
     {
-
         SoundManager.Instance.ClickBtnAudio();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -152,6 +152,7 @@ public class PauseUI : MonoBehaviour
 
     public void ResumeBtnClick()
     {
+        
         SoundManager.Instance.ClickBtnAudio();
         SoundManager.Instance.FadeSound(1);
         Cursor.lockState = CursorLockMode.Locked;
@@ -182,6 +183,8 @@ public class PauseUI : MonoBehaviour
     }
     public void MainBtnClick()
     {
+        if (_canvasGroup.alpha < .99f) return;
+
         //Time.timeScale = 1;
         SoundManager.Instance.ClickBtnAudio();
         DOTween.KillAll();
@@ -193,6 +196,8 @@ public class PauseUI : MonoBehaviour
     }
     public void TitleBtnClick()
     {
+        if (_canvasGroup.alpha < .99f) return;
+
         //Time.timeScale = 1;
         SoundManager.Instance.ClickBtnAudio();
         DOTween.KillAll();
@@ -200,6 +205,7 @@ public class PauseUI : MonoBehaviour
             UIManager.Instance.FadeIn(action: () =>
             {
                 PlayerDataManager.Instance.SaveData();
+                PlayerDataManager.Instance.PlayerData = new PlayerData();
                 Time.timeScale = 1;
                 SceneManager.LoadScene("Title");
             });
@@ -208,6 +214,7 @@ public class PauseUI : MonoBehaviour
             GameManager_Lobby._instance.FadeIn(() =>
             {
                 PlayerDataManager.Instance.SaveData();
+                PlayerDataManager.Instance.PlayerData = new PlayerData();
                 Time.timeScale = 1;
                 SceneManager.LoadScene("Title");
 

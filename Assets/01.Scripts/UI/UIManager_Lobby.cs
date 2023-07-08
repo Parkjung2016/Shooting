@@ -127,7 +127,7 @@ public class UIManager_Lobby : MonoBehaviour
     }
     public void SetPlayerInfo()
     {
-        _playerNameText.text = PlayerDataManager.Instance.PlayerData.PlayerName;
+        _playerNameText.text = PlayerDataManager.Instance.SavePlayerData.PlayerName;
         if(PlayerDataManager.Instance.PlayerData.CurrentEngine != null)
         _playerClassText.text = PlayerDataManager.Instance.PlayerData.CurrentEngine.ItemName;
         else

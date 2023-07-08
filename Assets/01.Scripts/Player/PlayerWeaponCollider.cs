@@ -37,6 +37,14 @@ public class PlayerWeaponCollider : MonoBehaviour
             EazySoundManager.PlaySound(_hitAudioClip, .6f);
             Instantiate(_hitEffect, transform.position, _hitEffect.transform.rotation);
         }
+
+        if (collision.CompareTag("Obstacle"))
+        {
+            CameraManager.Instance.Noise(2, .5f);
+            EazySoundManager.PlaySound(_protectAudioClip, .6f);
+            Instantiate(_hitEffect, transform.position, _hitEffect.transform.rotation); 
+            collision.GetComponent<Obstacle>().ApplyDamage(_damage);
+        }
         if (collision.CompareTag("EnemyBullet"))
         {
             CameraManager.Instance.Noise(2, .5f);

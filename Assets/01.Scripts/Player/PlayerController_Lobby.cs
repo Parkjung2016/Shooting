@@ -32,13 +32,11 @@ public class PlayerController_Lobby : MonoBehaviour
 
     private Transform _videoTrans;
 
-    private GameObject videoFCanvas;
 
 
     private void Awake()
     {
         _videoTrans = GameObject.Find("Video").transform;
-        videoFCanvas = _videoTrans.Find("FCanvas").gameObject;
         //_arcade_machine = FindObjectOfType<ArcadeUI>().transform.parent.transform;
         IsMoveTrue = true;
         _animator = GetComponentInChildren<Animator>();
@@ -52,7 +50,6 @@ public class PlayerController_Lobby : MonoBehaviour
         MoveAnim();
         if (Vector3.Distance(transform.position, _videoTrans.position) <= _videoDis && !GameManager_Lobby._instance._isVideo)
         {
-            videoFCanvas.SetActive(true);
             if (Input.GetKeyDown(KeyCode.F))
             {
                 IsMoveTrue = false;
@@ -68,10 +65,7 @@ public class PlayerController_Lobby : MonoBehaviour
                 });
             }
         }
-        else
-        {
-            videoFCanvas.SetActive(false);
-        }
+      
     }
     private void Move()
     {

@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         _goldText.text = PlayerDataManager.Instance.PlayerData.Gold.ToString();
-        _playerNameText.text = PlayerDataManager.Instance.PlayerData.PlayerName;
+        _playerNameText.text = PlayerDataManager.Instance.SavePlayerData.PlayerName;
         if (PlayerDataManager.Instance.PlayerData.PlayerType == 0)
             _playerClassText.text = PlayerDataManager.Instance.PlayerData.CurrentEngine.ItemName;
         else
@@ -119,7 +119,7 @@ public class UIManager : MonoBehaviour
     }
     public void SetScoreText(int score)
     {
-        _scoreText.text = "Á¡¼ö : " +score.ToString();
+        _scoreText.text = "ì ìˆ˜ : " +score.ToString();
     }
     public void VisibleDeath(int currentScore,float time = 1)
     {
@@ -127,8 +127,8 @@ public class UIManager : MonoBehaviour
         _deathAudioSource.Play();
         _deathcCanvasGroup.gameObject.SetActive(true);
         _deathcCanvasGroup.DOFade(1, time);
-        _currentScoreText.text = "ÇöÀç Á¡¼ö -> "+ currentScore.ToString();
-        _highScoreText.text ="ÃÖ°í Á¡¼ö -> "+ PlayerDataManager.Instance.PlayerData.HighScore[PlayerDataManager.Instance.MapIndex].ToString();
+        _currentScoreText.text = "í˜„ìž¬ ì ìˆ˜ -> "+ currentScore.ToString();
+        _highScoreText.text ="ìµœê³  ì ìˆ˜ -> "+ PlayerDataManager.Instance.PlayerData.HighScore[PlayerDataManager.Instance.MapIndex].ToString();
         if (currentScore > PlayerDataManager.Instance.PlayerData.HighScore[PlayerDataManager.Instance.MapIndex])
         {
                 PlayerDataManager.Instance.PlayerData.HighScore[PlayerDataManager.Instance.MapIndex] = currentScore;
@@ -140,7 +140,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         _highScoreText.GetComponent<AudioSource>().Play();
         _highScoreText.text = "";
-        _highScoreText.text = "ÃÖ°í Á¡¼ö -> " + currentScore;
+        _highScoreText.text = "ìµœê³  ì ìˆ˜ -> " + currentScore;
     }
     public void HideDeath(Action action = null)
     {

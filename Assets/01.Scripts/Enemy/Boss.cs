@@ -74,7 +74,7 @@ public class Boss : EnemyBase
     {
         if (_skilling)
         {
-            base.Collision(pC, 30, 6, .7f);
+            base.Collision(pC, 30, 5, .7f);
 
         }
         else
@@ -102,7 +102,7 @@ public class Boss : EnemyBase
         {
 
             Bullet bullet = PoolManager.Instance.Pop("BossBullet") as Bullet;
-
+        
             bullet.transform.position = transform.position;
             float angle = weightAngle + intervalAngle * i;
             float x = Mathf.Cos(angle * Mathf.PI / 180.0f);
@@ -131,7 +131,7 @@ public class Boss : EnemyBase
                 seq.Append(transform.DOMoveY(-Camera.main.orthographicSize + 3, 1).SetEase(Ease.InQuart));
                   seq.AppendCallback(()=>
                   {
-                      CameraManager.Instance.Noise(2, .3f);
+                      CameraManager.Instance.Noise(5, .3f);
                       EazySoundManager.PlaySound(_dashEndClip);
                   });
                 EazySoundManager.PlaySound(_dashClip);
@@ -154,7 +154,7 @@ public class Boss : EnemyBase
                 seq.Append(transform.DOMoveY(-Camera.main.orthographicSize + 3, .8f).SetEase(Ease.InQuart));
                 seq.AppendCallback(() =>
                 {
-                    CameraManager.Instance.Noise(2, .3f);
+                    CameraManager.Instance.Noise(5, .3f);
                     EazySoundManager.PlaySound(_dashEndClip);
                 });
                 seq.AppendInterval(.5f);

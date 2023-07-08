@@ -28,6 +28,9 @@ public class CharacterSelectUI : MonoBehaviour
 
     private Image _fade;
     private bool _selectTrue;
+
+    [SerializeField]
+    private GameObject[] containDatas;
     private void Awake()
     {
         _group = transform.Find("Group");
@@ -41,6 +44,8 @@ public class CharacterSelectUI : MonoBehaviour
         _fade = transform.Find("Fade").GetComponent<Image>();
         _fade.DOFade(0,0);
         _fade.gameObject.SetActive(false);
+        for(int i=0; i<2;i++)
+        containDatas[i].SetActive(PlayerDataManager.Instance.SavePlayerData.datas[i].MaxHP != 0);
     }
     private void Update()
     {
@@ -81,12 +86,17 @@ public class CharacterSelectUI : MonoBehaviour
     public void SelectPlayer()
     {
         SoundManager.Instance.ClickBtnAudio();
-        PlayerDataManager.Instance.PlayerData.PlayerType = _currentPlayerSelected;
+        PlayerDataManager.Instance.LoadData(_currentPlayerSelected);
+        if (!PlayerDataManager.Instance.PlayerData.Begin)
+        {
+            PlayerDataManager.Instance.PlayerData.Begin = true;
+            PlayerDataManager.Instance.PlayerData.PlayerType = _currentPlayerSelected;
         PlayerDataManager.Instance.SaveData();
+        }
         _fade.gameObject.SetActive(true);
         _fade.DOFade(1, 1).OnComplete(() =>
             {
-                PlayerDataManager.Instance.LoadData();
+                // PlayerDataManager.Instance.LoadData(_currentPlayerSelected);
                 LoadingSceneManager.LoadScene("Lobby");
             });
     }

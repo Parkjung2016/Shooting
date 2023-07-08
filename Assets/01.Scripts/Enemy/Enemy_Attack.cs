@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 using Hellmade.Sound;
+using Random = UnityEngine.Random;
 
 public class Enemy_Attack : EnemyBase
 {
@@ -141,6 +142,20 @@ public class Enemy_Attack : EnemyBase
                     seq.Kill();
                 });
                 break;
+            case BehaviourType.FIVE:
+                float minX  = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x+.4f;
+                float maxX= Camera.main.ViewportToWorldPoint(new Vector3(1, 1)).x-.4f;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                transform.position = new Vector3(Random.Range(minX,maxX), 7, 0);
+                seq.Append(transform.DOMoveY(UnityEngine.Random.Range(2,4), 1));
+                seq.AppendInterval(.5f);
+                seq.AppendCallback(() =>
+                {
+                    _trueDamaged = true;
+                    Move();
+                    seq.Kill();
+                });
+                break;
         }
 
     }
@@ -214,6 +229,11 @@ public class Enemy_Attack : EnemyBase
             case BehaviourType.FOUR:
                 seq.AppendCallback(() => StartCoroutine(Attack()));
                 seq.AppendInterval(6f);
+                seq.AppendCallback(() => Move());
+                break;
+            case BehaviourType.FIVE:
+                seq.AppendCallback(() => StartCoroutine(Attack()));
+                seq.AppendInterval(2f);
                 seq.AppendCallback(() => Move());
                 break;
         }
@@ -407,6 +427,22 @@ public class Enemy_Attack : EnemyBase
                         bullet.Dir = Vector2.zero;
                         bullet.MoveAndFollow(Player.transform);
                     }
+                }
+                break;
+            case BehaviourType.FIVE:
+                for (int i = 0; i < 20; i++)
+                {
+                   Bullet bullet =  PoolManager.Instance.Pop("BomberBullet") as Bullet;
+                   bullet.Dir = new Vector2(.5f, -.5f);
+                   bullet.transform.rotation = Quaternion.Euler(0, 0, 160);
+                   bullet.transform.position = new Vector3(transform.position.x-.25f, transform.position.y);
+                }
+                for (int i = 0; i < 20; i++)
+                {
+                    Bullet bullet =  PoolManager.Instance.Pop("BomberBullet") as Bullet;
+                    bullet.Dir = new Vector2(-.5f, -.5f);
+                    bullet.transform.rotation = Quaternion.Euler(0, 0, -160);
+                   bullet.transform.position = new Vector3(transform.position.x+.25f, transform.position.y);
                 }
                 break;
         }

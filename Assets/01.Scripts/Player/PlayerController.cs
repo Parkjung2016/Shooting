@@ -91,7 +91,7 @@ public class PlayerController : PlayerControllerBase
 
         if(PlayerDataManager.Instance.PlayerData.CurrentWeapon.MaxBulletType == BulletType.Lightning)
         {
-            _weaponAnimator.speed = .4f;
+            _weaponAnimator.speed = .75f;
         }
     }
 

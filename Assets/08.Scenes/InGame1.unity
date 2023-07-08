@@ -1612,10 +1612,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyActiveTime:
-  - 6
-  - 5
-  - 4
-  - 5
+  - 2
+  - 2
+  - 2
+  - 2
   BulletEnemyCount: 
   CanSpawnEwnemy: 0
 --- !u!1001 &1164320019040180564

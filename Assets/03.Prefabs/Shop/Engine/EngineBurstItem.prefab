@@ -400,14 +400,14 @@ MonoBehaviour:
     level: 0
     AddReinforcePrice: 200
     skillType: 1
-    SkillCoolTime: 25
+    SkillCoolTime: 9
     SkillDamage: 0
     SkillInfo: "\uC5EC\uC6B0 \uD658\uC601\uC744 \uC774\uC6A9\uD574 \uBAA8\uB4E0 \uC801\uC744
-      \uC5C6\uC571\uB2C8\uB2E4.(25\uCD08)"
+      \uC5C6\uC571\uB2C8\uB2E4.(9\uCD08)"
     SkillName: "\uC5EC\uC6B0\uC758 \uB9C8\uC9C0\uB9C9 \uC120\uBB3C"
     Index: 1
     UpgradeValue0: 30
-    UpgradeValue1: 1
+    UpgradeValue1: 0
   _levelText: {fileID: 4186254058487842949}
   EquipedImg: {fileID: 6504970400218704874}
   _itemImg: {fileID: 4891586303830863961}

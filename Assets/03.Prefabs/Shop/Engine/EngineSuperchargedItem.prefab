@@ -392,7 +392,7 @@ MonoBehaviour:
     - "\uC774\uB3D9 \uC18D\uB3C4"
     Values:
     - 200
-    - 14
+    - 7
     spritePath: Image/PNGs/SuperChargedEngine
     FirePoses: []
     Price: 2000
@@ -400,14 +400,14 @@ MonoBehaviour:
     level: 0
     AddReinforcePrice: 250
     skillType: 3
-    SkillCoolTime: 17
-    SkillDamage: 40
+    SkillCoolTime: 12
+    SkillDamage: 12
     SkillInfo: "\uBC88\uAC1C\uB97C \uC18C\uD658\uD558\uC5EC 40\uB9CC\uD07C\uC758
-      \uD53C\uD574\uB97C \uC8FC\uACE0 \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4.(17\uCD08)"
+      \uD53C\uD574\uB97C \uC8FC\uACE0 \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4.(12\uCD08)"
     SkillName: "\uBE60\uBC14\uBC15"
     Index: 3
     UpgradeValue0: 60
-    UpgradeValue1: 4
+    UpgradeValue1: 1
   _levelText: {fileID: 5628228018760742658}
   EquipedImg: {fileID: 6127857652072157988}
   _itemImg: {fileID: 4891586303830863961}

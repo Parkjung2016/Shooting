@@ -20,9 +20,9 @@ public class CameraManager
     }
     public void Noise(float AmplitudeGain,float time)
     {
-   _perlin.m_AmplitudeGain = AmplitudeGain;
         if (seq != null && seq.IsActive())
             seq.Kill();
+   _perlin.m_AmplitudeGain = AmplitudeGain;
         seq= DOTween.Sequence();
         seq.AppendInterval(time);
         seq.Append(DOTween.To(() => _perlin.m_AmplitudeGain, x => _perlin.m_AmplitudeGain = x, .1f  , .5f));

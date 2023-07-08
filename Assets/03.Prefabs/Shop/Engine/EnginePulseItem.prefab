@@ -312,7 +312,7 @@ MonoBehaviour:
     - "\uC774\uB3D9 \uC18D\uB3C4"
     Values:
     - 120
-    - 15
+    - 8
     spritePath: Image/PNGs/BigPulseEngine
     FirePoses: []
     Price: 1500
@@ -320,14 +320,14 @@ MonoBehaviour:
     level: 0
     AddReinforcePrice: 300
     skillType: 2
-    SkillCoolTime: 15
+    SkillCoolTime: 10
     SkillDamage: 0
     SkillInfo: "\uC274\uB4DC\uB97C \uC18C\uD658\uD574 5\uCD08\uAC04 \uBAA8\uB4E0
-      \uD53C\uD574\uB97C \uBB34\uC2DC\uD569\uB2C8\uB2E4.(15\uCD08)"
+      \uD53C\uD574\uB97C \uBB34\uC2DC\uD569\uB2C8\uB2E4.(10\uCD08)"
     SkillName: "\uC808\uB300 \uBABB \uB6AB\uC9C0"
     Index: 2
     UpgradeValue0: 25
-    UpgradeValue1: 3
+    UpgradeValue1: 1.5
   _levelText: {fileID: 5532315635594970518}
   EquipedImg: {fileID: 5856109753501345703}
   _itemImg: {fileID: 4891586303830863961}

@@ -8,20 +8,21 @@ public class PlayerDataManager : MonoBehaviour
 {
     public static PlayerDataManager Instance;
 
-    [HideInInspector]
-    public PlayerData PlayerData = new PlayerData();
+    [HideInInspector] public PlayerData PlayerData = new PlayerData();
 
     private string savePath;
 
-    [SerializeField]
-    private Texture2D _cursorTexture2D;
+    [SerializeField] private Texture2D _cursorTexture2D;
     public int MapIndex;
+
+
+    [HideInInspector] public Data SavePlayerData = new Data();
 
     private void Awake()
     {
         savePath = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         PlayerDataManager[] playerDataManagers = FindObjectsOfType<PlayerDataManager>();
-        if(playerDataManagers.Length > 1 )
+        if (playerDataManagers.Length > 1)
         {
             Destroy(gameObject);
         }
@@ -30,25 +31,47 @@ public class PlayerDataManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        Cursor.SetCursor(_cursorTexture2D, Vector2.zero,CursorMode.Auto);
+
+        Cursor.SetCursor(_cursorTexture2D, Vector2.zero, CursorMode.Auto);
     }
-    public void  SaveData()
+
+    public void SaveData()
     {
-        string Json = JsonUtility.ToJson(PlayerData,true);
+        if (PlayerData.PlayerType != 99)
+        {
+            SavePlayerData.datas[PlayerData.PlayerType] = PlayerData;
+        }
+
+        string Json = JsonUtility.ToJson(SavePlayerData, true);
         File.WriteAllText(savePath, Json);
     }
-    public bool LoadData()
-    {
-        if(File.Exists(savePath))
-        {
-        PlayerData  = JsonUtility.FromJson<PlayerData>( File.ReadAllText(savePath));
-        }
-        return File.Exists(savePath);
 
+    public void DeleteData()
+    {
+        if (CheckData())
+            File.Delete(savePath);
     }
+
+    public bool CheckData()
+    {
+        return File.Exists(savePath);
+    }
+
+    public void LoadData(int index = 99)
+    {
+        if (File.Exists(savePath))
+        {
+            SavePlayerData = JsonUtility.FromJson<Data>(File.ReadAllText(savePath));
+            if (index != 99)
+            {
+                PlayerData = SavePlayerData.datas[index];
+            }
+        }
+    }
+
     private void OnApplicationQuit()
     {
-        if(SceneManager.GetActiveScene().name!="Title" && PlayerData. PlayerName != "")
-        SaveData();
+        if (SceneManager.GetActiveScene().name != "Title" && SavePlayerData.PlayerName != "")
+            SaveData();
     }
 }

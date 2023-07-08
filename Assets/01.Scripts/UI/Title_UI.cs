@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -105,8 +107,19 @@ public class Title_UI : MonoBehaviour
 
     public void PressBtn()
     {
-        bool loaded = PlayerDataManager.Instance.LoadData();
-        if (!loaded || (loaded && PlayerDataManager.Instance.PlayerData.PlayerName == ""))
+        bool loaded = PlayerDataManager.Instance.CheckData();
+        PlayerDataManager.Instance.LoadData();
+
+        if (PlayerDataManager.Instance.SavePlayerData.Remove)
+        {
+            PlayerDataManager.Instance.DeleteData();
+            PlayerDataManager.Instance.PlayerData = new PlayerData();
+            PlayerDataManager.Instance.SavePlayerData = new Data();
+            PlayerDataManager.Instance.SavePlayerData.Remove = false;
+            PlayerDataManager.Instance.SaveData();
+            loaded = false;
+        }
+        if (!loaded || (loaded && (PlayerDataManager.Instance.SavePlayerData == null ||PlayerDataManager.Instance.SavePlayerData.PlayerName == "")))
         {
             _audioSource.PlayOneShot(_showMakeInfoAudioClip);
             _playerInfoGroup.gameObject.SetActive(true);
@@ -119,10 +132,8 @@ public class Title_UI : MonoBehaviour
             Camera.main.GetComponent<AudioSource>().DOFade(0, 1);
             _fade.DOFade(1, 1).OnComplete(() =>
             {
-                if (PlayerDataManager.Instance.PlayerData.PlayerType == 99)
-                    SceneManager.LoadScene("CharacterSelect");
-                else
-                    LoadingSceneManager.LoadScene("Lobby");
+                SceneManager.LoadScene("CharacterSelect");
+
             });
         }
     }
@@ -211,8 +222,13 @@ public class Title_UI : MonoBehaviour
             {
                 SoundManager.Instance.SuccessAudio();
                 _fade.gameObject.SetActive(true);
-
-                PlayerDataManager.Instance.PlayerData.PlayerName = inputField.text;
+                PlayerDataManager.Instance.SavePlayerData = new Data();
+                PlayerDataManager.Instance.SavePlayerData .Remove = false;
+                for (int i = 0; i <          PlayerDataManager.Instance.SavePlayerData.datas.Length; i++)
+                {
+                    PlayerDataManager.Instance.SavePlayerData.datas[i] = new PlayerData();
+                }
+                PlayerDataManager.Instance.SavePlayerData.PlayerName= inputField.text;
                 PlayerDataManager.Instance.SaveData();
              _fade.DOFade(1, 1).OnComplete(() => SceneManager.LoadScene("CharacterSelect"));
             }

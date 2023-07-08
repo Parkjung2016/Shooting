@@ -122,8 +122,8 @@ public class Pet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            if (collision.GetComponent<Boss>() != null) return;
             EnemyBase _enemy = collision.GetComponent<EnemyBase>();
-            if (_enemy as Boss == null)
             collision.GetComponent<EnemyBase>().ApplyDamage(555);
         }
     }

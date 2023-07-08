@@ -320,10 +320,10 @@ MonoBehaviour:
     level: 0
     AddReinforcePrice: 150
     skillType: 0
-    SkillCoolTime: 10
+    SkillCoolTime: 8
     SkillDamage: 30
     SkillInfo: "\uBA54\uD14C\uC624\uB97C \uC5EC\uB7EC \uBC88 \uBC1C\uC0AC \uD574
-      30\uB9CC\uD07C\uC758 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4.(10\uCD08)"
+      30\uB9CC\uD07C\uC758 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4.(8\uCD08)"
     SkillName: "\uC774\uAC74 \uBABB\uD53C\uD574"
     Index: 0
     UpgradeValue0: 20

@@ -79,8 +79,9 @@ public class EnemyBase : PoolableMono
     [SerializeField]
     private AudioClip _destroyAudioClip;
     [SerializeField]
-    private float _colAmp = 3f;
+    protected float _colAmp = 3f;
 
+    public int appearStage = 0;
     public override void Init()
     {
         _trueDamaged = false;
@@ -164,9 +165,9 @@ public class EnemyBase : PoolableMono
         }
 
     }
-    protected virtual void Collision(PlayerControllerBase pC, float dam, float Amp, float time)
+    protected virtual void Collision(PlayerControllerBase pC, float dam, float Amp, float _time)
     {
-        CameraManager.Instance.Noise(Amp, time);
+        CameraManager.Instance.Noise(Amp, _time );
         ApplyDamage(15);
         pC.ApplyDamage(dam);
     }

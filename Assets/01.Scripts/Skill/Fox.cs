@@ -33,6 +33,11 @@ public class Fox : MonoBehaviour
             {
                 Enemies[i].ApplyDamage(10000);
             }
+            Obstacle obs = FindObjectOfType<Obstacle>();
+            if (obs.gameObject.activeSelf)
+            {
+                obs.ApplyDamage(10000);
+            }
         });
         seq.Join(_renderer.DOFade(0, 1).OnComplete(()=>
         {
